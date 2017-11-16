@@ -12,10 +12,10 @@ with some nice features
 
 ### Hardware Setup
 
-Pinout
-Red Led = Pin 22
-Green Led = Pin 18
-Blue Led = Pin 17
+Pinout  
+Red Led = Pin 22  
+Green Led = Pin 18  
+Blue Led = Pin 17  
 Snooze Button = Pin 7 (Active Low)
 
 
@@ -24,12 +24,12 @@ Snooze Button = Pin 7 (Active Low)
 Python3 is used for this project.
 
 The following modules are needed
-Transitions (for state machine, [github](https://github.com/tyarkoni/transitions.git))
-PyQt5 (for graphical output, optional)
-RPi.GPIO (for input button)
-pytz (for timezone)
-pprint (for text display)
-pi-blaster (for PWM of Pins)
+- Transitions (for state machine, [github](https://github.com/tyarkoni/transitions.git))
+- PyQt5 (for graphical output, optional)
+- RPi.GPIO (for input button)
+- pytz (for timezone)
+- pprint (for text display)
+- pi-blaster (for PWM of Pins)  
 ... and others
 
 
