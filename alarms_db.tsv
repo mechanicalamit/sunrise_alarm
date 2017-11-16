@@ -1,0 +1,19 @@
+# Adds a tsv alarm database for transistions alarm
+#
+# No. : Alarm numner. Also adds priority. If two alarms are in run mode, lower number dictates what profile is to be run
+# Enabled : Alarm enabled. Y/N
+# DOW : Day of Week to run alarm. 0 == Monday. Can be comma seperated(1,2,3) or with dash (1-5)
+# Run_T : When to start running
+# Ready_T : When to go to READY from IDLE. Ready time preceeding run time will be used. This is for pre-snooze. Can be set same as Run_T
+# Repeat : How many times to repeat alarm. Each READY state will decrement count. Set to zero for infinite repeat
+# Profile : RGB profile to run
+#
+#No.	Enabled	DOW	Ready_T	Run_T	Repeat	Counter	Profile
+#                                       
+1	Y	0-4	2000	0500	Y	0	rgb_morning_dad
+2	Y	0-6	1033	1033	Y	0	rgb_morning_son
+3	N	0,3-5,6	1900	0500	Y	0	rgb_morning_dad
+4	N	0,3-5,6	0300	0500	Y	0	rgb_morning_dad
+5	N	0-6	1600	1700	Y	0	rgb_morning_dad
+6	Y	0-6	2000	2200	Y	0	Nightlight
+# Adds a tsv alarm database for transistions alarm
