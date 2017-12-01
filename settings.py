@@ -1,8 +1,8 @@
 
 
 # use pyqt to see colors on screen while developing. Enable hardware while running on Pi
-enable_pyqt = True
-enable_hw = False
+enable_pyqt = False
+enable_hw = True
 
 # We use pytz to get time for a particular timezone. Set your local timezone here
 TZ = ('US/Eastern')
@@ -11,5 +11,5 @@ TZ = ('US/Eastern')
 al_db_file = 'alarms_db.tsv'
 
 # Use this for testing. Speeds up time by a factor so we are not watching paint dry
-enable_speedup = True
+enable_speedup = False
 speedup = 2000

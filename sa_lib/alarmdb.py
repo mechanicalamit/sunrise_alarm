@@ -17,10 +17,10 @@ class AlarmsDB(object):
                 if line[0][0] != '#' :
                     self.add_alarm(line)
                     self.rawtext.append('\t'.join(line))
-        self.process_raw_alarmdb() 
+        self.process_raw_alarmdb()
 
     def add_alarm(self, al_tup):
-        self.alarmdb.append ( {'alarm_no': al_tup[0], 'enabled' : al_tup[1], 'dow' : al_tup[2], 
+        self.alarmdb.append ( {'alarm_no': al_tup[0], 'enabled' : al_tup[1], 'dow' : al_tup[2],
             'ready_t' : al_tup[3], 'run_t' : al_tup[4], 'repeat': al_tup[5], 'counter' : al_tup[6], 'profile' : al_tup[7] } )
 
     def parsedow(self, instr):
@@ -45,7 +45,7 @@ class AlarmsDB(object):
         for al in self.alarmdb:
             al['alarm_no'] = int(al['alarm_no'])
             al['enabled'] = validYN[al['enabled'].lower()]
-            al['dow'] = self.parsedow(al['dow']) 
+            al['dow'] = self.parsedow(al['dow'])
             al['run_t'] = int(al['run_t'])
             al['ready_t'] = int(al['ready_t'])
             al['repeat'] = validYN[al['repeat'].lower()]
@@ -57,7 +57,7 @@ class AlarmsDB(object):
                 al['ready_dow'] = al['dow'][1:] + [al['dow'][0]]
             else:
                 al['ready_dow'] = al['dow']
-            
+
     def print_alarmdb(self):
         import pprint
         pprint.pprint(self.alarmdb)

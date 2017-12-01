@@ -31,21 +31,21 @@ class Light_Sound(object):
                 def __init__(self):
                     super().__init__()
                     self.init()
-                    
-                def init(self):      
 
-                    self.col = QtGui.QColor(0, 0, 0)       
+                def init(self):
+
+                    self.col = QtGui.QColor(0, 0, 0)
 
                     self.setGeometry(300, 300, 280, 170)
                     self.setWindowTitle('Light and Sound')
-                    self.setStyleSheet("QWidget { background-color: %s }" %  
+                    self.setStyleSheet("QWidget { background-color: %s }" %
                         self.col.name())
 
                     self.show()
 
                 def set_col(self, rgbvals):
-                    self.col = QtGui.QColor(rgbvals[0], rgbvals[1], rgbvals[2])       
-                    self.setStyleSheet("QWidget { background-color: %s }" %  
+                    self.col = QtGui.QColor(rgbvals[0], rgbvals[1], rgbvals[2])
+                    self.setStyleSheet("QWidget { background-color: %s }" %
                         self.col.name())
                 # End of class ColorWindow
 
@@ -53,20 +53,20 @@ class Light_Sound(object):
             self.ColorWindow = ColorWindow()
 
     def blink_red_twice(self):
-        self.set_rgb((255,0,0))
+        self.set_rgb((1,0,0))
         time.sleep(0.5)
         self.set_rgb((0,0,0))
         time.sleep(0.5)
-        self.set_rgb((255,0,0))
+        self.set_rgb((1,0,0))
         time.sleep(0.5)
         self.set_rgb((0,0,0))
 
     def blink_green_twice(self):
-        self.set_rgb((0,255,0))
+        self.set_rgb((0,1,0))
         time.sleep(0.5)
         self.set_rgb((0,0,0))
         time.sleep(0.5)
-        self.set_rgb((0,255,0))
+        self.set_rgb((0,1,0))
         time.sleep(0.5)
         self.set_rgb((0,0,0))
 

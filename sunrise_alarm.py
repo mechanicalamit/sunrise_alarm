@@ -89,7 +89,7 @@ def got_button(Al_Machs):
     lghtsnd.blink_red_twice()
 
 """==== Instantiations =============================="""
-# Global settings 
+# Global settings
 import settings
 
 # Instantiate display here
@@ -127,7 +127,12 @@ if settings.enable_hw:
 dis.add_t(None, 'BEGIN', datetime.now(tz = pytz.timezone(settings.TZ)))
 dis.update_screen()
 
-""" 
+""" Prestart """
+for a in Al_State_Machs:
+    a.init()
+    a.activate()
+
+"""
 Scheduler
 """
 while True:
@@ -135,24 +140,24 @@ while True:
         nw  = d_sp.now()
         al_no = a.get_al()['alarm_no']
 
-        if a.state == 'START' : 
+        if a.state == 'START' :
             a.init()
 
         if a.state == 'IDLE' :
             if a.is_ready(nw):
-                a.activate() 
+                a.activate()
 
         if a.state == 'READY' :
             if a.can_ring(nw):
                 a.set_start_ringing_time(nw)
-                a.ring() 
+                a.ring()
 
         if a.state == 'RUN' :
             d_sp.set_speedup_val(100) # Alarm is running, lets slow it down to see it better
             if a.is_done_ringing(nw):
                 a.snooze()
 
-    # Loop over all state machines, 
+    # Loop over all state machines,
     for a in Al_State_Machs:
         # If any machine state is RUN, set light/sound and break, else all off
         Machs_Running = [a for a in Al_State_Machs if a.state=='RUN']

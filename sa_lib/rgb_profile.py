@@ -25,7 +25,7 @@ class RGB_Profile(object):
             r_val = min(255, int(seconds_elapsed * 0.5))
             g_val = min(255, max(0, int(seconds_elapsed * 0.5 -500)))
             b_val = min(255, max(0, int(seconds_elapsed-1400)))
-            return (r_val, g_val, b_val) 
+            return (r_val, g_val, b_val)
 
     def get_totaltime(self):
         return self.totaltime
@@ -34,7 +34,7 @@ class RGB_Profile(object):
         return self.total_seconds
 
 """==== User defined RGB Profiles =================================="""
-# Other profiles that are inherited, in this case simple copies 
+# Other profiles that are inherited, in this case simple copies
 rgb_morning_dad = RGB_Profile
 
 # Other profiles would be children of RGB_Profile
@@ -51,13 +51,12 @@ class Nightlight(RGB_Profile):
             return None
         else:
             # Night is low white light
-            col_level = 75
-            return (col_level, col_level, col_level) 
+            col_level = 0.001
+            return (col_level, col_level, col_level)
 
 # Blink full white, on/off every second
 class Blink(RGB_Profile):
-    totaltime = 30 # minutes, 8 hours, all night
-    total_seconds = totaltime * 60 # seconds
+    totaltime = 30 # minutes
 
     def __init__(self):
         super().__init__()
@@ -67,14 +66,14 @@ class Blink(RGB_Profile):
             return None
         else:
             col_level = int(seconds_elapsed % 2) * 255
-            return (col_level, col_level, col_level) 
+            return (col_level, col_level, col_level)
 
 # Class to solve MRO issues
 class Sunrise(RGB_Profile):
     pass
 
 # Multiple Inheritence. Hurrah!!
-# Totally unneccessary, but 
+# Totally unneccessary, but
 class rgb_morning_son(Sunrise, Blink):
     totaltime = Sunrise.totaltime + Blink.totaltime # minutes
     total_seconds = totaltime * 60 # seconds
