@@ -10,6 +10,9 @@ TZ = ('US/Eastern')
 # Alarma DataBase file name
 al_db_file = 'alarms_db.tsv'
 
+# Use this to enable logging to a a log file
+logging = True
+
 # Use this for testing. Speeds up time by a factor so we are not watching paint dry
 enable_speedup = False
 speedup = 2000
