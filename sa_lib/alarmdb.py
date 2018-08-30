@@ -71,3 +71,7 @@ class AlarmsDB(object):
     def get_rawtext(self):
         return self.rawtext
 
+# If called directly, instantiate a db, and print for debugging
+if __name__ == '__main__' :
+    al_db = AlarmsDB('../alarms_db.tsv')
+    al_db.print_alarmdb()
