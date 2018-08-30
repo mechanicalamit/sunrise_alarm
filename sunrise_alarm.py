@@ -43,7 +43,7 @@ class RPiSunrise(object):
 
     def can_ring(self, indate):
         hhmm = indate.hour * 100 + indate.minute
-        if self.al['enabled'] and self.al['dow'][indate.weekday()] and ( 0 <= (hhmm - self.al['run_t']) < 2 ):
+        if self.al['enabled'] and self.al['run_dow'][indate.weekday()] and ( 0 <= (hhmm - self.al['run_t']) < 2 ):
             self.ringingal = al
             return True
         return False

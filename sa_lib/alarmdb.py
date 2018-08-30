@@ -20,7 +20,7 @@ class AlarmsDB(object):
         self.process_raw_alarmdb()
 
     def add_alarm(self, al_tup):
-        self.alarmdb.append ( {'alarm_no': al_tup[0], 'enabled' : al_tup[1], 'dow' : al_tup[2],
+        self.alarmdb.append ( {'alarm_no': al_tup[0], 'enabled' : al_tup[1], 'run_dow' : al_tup[2],
             'ready_t' : al_tup[3], 'run_t' : al_tup[4], 'repeat': al_tup[5], 'counter' : al_tup[6], 'profile' : al_tup[7] } )
 
     def parsedow(self, instr):
@@ -45,18 +45,18 @@ class AlarmsDB(object):
         for al in self.alarmdb:
             al['alarm_no'] = int(al['alarm_no'])
             al['enabled'] = validYN[al['enabled'].lower()]
-            al['dow'] = self.parsedow(al['dow'])
+            al['run_dow'] = self.parsedow(al['run_dow'])
             al['run_t'] = int(al['run_t'])
             al['ready_t'] = int(al['ready_t'])
             al['repeat'] = validYN[al['repeat'].lower()]
             al['counter'] = int(al['counter'])
             al['profile'] = str(al['profile']) # Lets keep it as a string
 
-            # If ready_t is > run_t : it falls on the previous day. DOW for ready_t then has to be fixed for days before
+            # If ready_t is > run_t : it falls on the previous day. RUN_DOW for ready_t then has to be fixed for days before
             if al['ready_t'] > al['run_t']:
-                al['ready_dow'] = al['dow'][1:] + [al['dow'][0]]
+                al['ready_dow'] = al['run_dow'][1:] + [al['run_dow'][0]]
             else:
-                al['ready_dow'] = al['dow']
+                al['ready_dow'] = al['run_dow']
 
     def print_alarmdb(self):
         import pprint
