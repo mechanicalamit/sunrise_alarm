@@ -43,6 +43,9 @@ class speedup_date(object):
     def set_speedup_val(self, val):
         self.speedup_val = val
 
+    def get_TZ(self):
+        return self.TZ
+
 
 # If called directly
 # Also used to develop/debug this module
