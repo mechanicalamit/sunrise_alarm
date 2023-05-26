@@ -5,7 +5,7 @@ enable_pyqt = False
 enable_hw = True
 
 # We use pytz to get time for a particular timezone. Set your local timezone here
-TZ = ('US/Eastern')
+TZ = ('Europe/Berlin')
 
 # Alarma DataBase file name
 al_db_file = 'alarms_db.tsv'

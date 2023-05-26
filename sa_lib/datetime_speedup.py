@@ -52,9 +52,8 @@ class speedup_date(object):
 if __name__ == '__main__' :
     speedup = 10
     t_fmt = '%Y/%m/%d %H:%M:%S'
-    d_sp = speedup_date(enable_speedup = True, speedup_val = speedup)
+    d_sp = speedup_date(TZ='Europe/Berlin', enable_speedup = True, speedup_val = speedup)
     print("Using speedup ", speedup)
     while True:
-        print(datetime.now(tz=self.TZ).strftime(t_fmt), '\t',d_sp.now(tz=self.TZ).strftime(t_fmt))
+        print(datetime.now(tz=d_sp.TZ).strftime(t_fmt), '\t',d_sp.now().strftime(t_fmt))
         sleep(1)
-
