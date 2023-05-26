@@ -76,15 +76,24 @@ class RPiSunrise(object):
             return True
         return False
 
+"""==== Main Functions =============================="""
 
 def got_button(Al_Machs):
-    # Go over all alarms in reversed order, and tell them we got button
-    # If they are able to do any action, then return True and bug out, else continue on next one
+    # Step 1 : It any alarm is ringing, snooze it. Go in straight priority order since higher priority will be ringing
+    for a in (Al_Machs):
+        if a.state == 'RUN' :
+            a.snooze()
+            lghtsnd.blink_green_twice()
+            return
+
+    # Step 2 : # Go over all alarms in reversed order, and tell them we got button
+    #          # If they are able to do any action, then return True and bug out, else continue on next one
     for a in reversed(Al_Machs):
         if a.got_button():
             lghtsnd.blink_green_twice()
             return
-    # No Machine could take action on button, all are idle
+
+    # Step 3 : No Machine could take action on button, all are idle
     print("Got Button : All IDLE")
     lghtsnd.blink_red_twice()
 
